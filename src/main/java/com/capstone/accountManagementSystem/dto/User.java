@@ -26,6 +26,9 @@ public class User {
 	private String password;
 	@Column
 	private int roleId;
+	public String getPassword() {
+		return password;
+	}
 	
 }
 
