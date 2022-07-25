@@ -38,5 +38,8 @@ public class Customer {
 	private String aadharDoc;
 	@Column
 	private String pancardDoc;
+	public String getPancardNo() {
+		return pancardNo;
+	}
 	
 }
