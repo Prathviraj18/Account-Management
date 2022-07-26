@@ -7,6 +7,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class AccountManagementSystemApplication {
 
 	public static void main(String[] args) {
+		System.out.println("check");
 		SpringApplication.run(AccountManagementSystemApplication.class, args);
 	}
 
