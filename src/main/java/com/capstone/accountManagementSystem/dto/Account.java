@@ -21,9 +21,9 @@ import lombok.NoArgsConstructor;
 public class Account {
 
 	@Id // for PK
-	private int accountNo;
+	private long accountNo;
 	@Column
-	private String customerId;
+	private int customerId;
 	@Column
 	private long currentBalance;
 	
