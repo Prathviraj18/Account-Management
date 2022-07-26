@@ -8,7 +8,9 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.barclays.accountmanagement.entity.Users;
 import com.capstone.accountManagementSystem.dto.Customer;
+import com.capstone.accountManagementSystem.dto.User;
 import com.capstone.accountManagementSystem.service.CustomerService;
 
 
@@ -18,7 +20,7 @@ public class CustomerController {
 	
 	@Autowired
 	private CustomerService customerService;
-	
+
 	@PostMapping("/adduserdetails")
 	public ResponseEntity<Object> addUserDetails(@RequestBody Customer customerDetails){
 		
@@ -30,7 +32,7 @@ public class CustomerController {
 				
 				Customer customer = customerService.createNewCusomer(customerDetails);
 			
-//				Users newUser = createNewLoginCredentials(bankCustomerDetails);
+				User newUser = createNewLoginCredentials(customer);
 				
 //				sendEmail(newUser,customerDetails);
 				
@@ -48,6 +50,15 @@ public class CustomerController {
 		}
 		
 		
+	}
+
+	private User createNewLoginCredentials(Customer customer) {
+		User newUser = new User();
+		newUser.userId=customer.getCustomerId();
+		newUser.password="India123";
+		newUser.roleId=2;
+		customerService.createUser(newUser);
+		return newUser;
 	}
 
 }
