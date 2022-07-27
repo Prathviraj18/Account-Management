@@ -5,6 +5,7 @@ import java.time.LocalDate;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.Table;
 import javax.persistence.Transient;
 
@@ -21,6 +22,9 @@ import lombok.NoArgsConstructor;
 public class Customer {
 
 	@Id // for PK
+	//@NotNull
+   // @Min(value =6, message="Customer ID is mandatory")
+	@JoinColumn (name = "customerId")
 	private int customerId;
 	@Column(unique=true, nullable=false)
 	private String pancardNo;
